@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+  host: localhost
+  min_messagges: warning
+
+development:
+  <<: *default
+  database: amwriting_dev
+
+test:
+  <<: *default
+  database: amwriting_test
+
+production:
+  <<: *default
+  database: amwriting
