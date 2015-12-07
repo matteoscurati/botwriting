@@ -1,0 +1,12 @@
+.menu
+  .menu__inner
+    a.menu__logo href="#"
+    .menu__content
+      .menu__navbar
+        = link_to "home", root_path, class: "menu__navbar__item"
+        - if user_signed_in?
+          = link_to "your account", edit_user_registration_path, class: "menu__navbar__item"
+          = link_to "log out", destroy_user_session_path, class: "menu__navbar__item", method: :delete
+        - else
+          = link_to "Sign up", new_user_registration_path, class: "menu__navbar__item"
+          = link_to "Log in", new_user_session_path, class: "menu__navbar__item"

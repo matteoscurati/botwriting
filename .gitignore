@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Misc
+.DS_Store
+.idea
+/config/database.yml
