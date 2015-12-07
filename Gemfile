@@ -33,6 +33,7 @@ group :development do
   gem "awesome_print"
   gem "dotenv-rails"
   gem 'guard-livereload'
+  gem "letter_opener"
   gem 'rack-livereload'
   gem "rspec-rails"
   gem 'spring'

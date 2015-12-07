@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, presence: true
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   def needs_edit?
     needs_edit = false
