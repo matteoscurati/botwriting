@@ -10,10 +10,10 @@
         = f.label :password, class: "form__label"
         = f.password_field :password, autocomplete: "off", class: "form__input--large"
       - if devise_mapping.rememberable?
-        label.input--checkbox.space--bottom-1
+        label.input--checkbox
           = f.check_box :remember_me
           = f.label :remember_me, class: "input__label"
-      .actions
+      .actions.space--top-1
         = f.submit "Log in", class: "button"
 .wrap.space--top-3
   = render "devise/shared/links"
