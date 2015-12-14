@@ -4,7 +4,6 @@ default: &default
   timeout: 5000
   encoding: utf8
   host: localhost
-  min_messagges: warning
 
 development:
   <<: *default
