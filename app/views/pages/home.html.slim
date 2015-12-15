@@ -9,7 +9,7 @@
       - if user_signed_in?
         .hero__nav
           .hero__nav__item
-            .button--huge Start your daily story
+            = link_to "Start your daily story", posts_path, class: "button--huge"
           .hero__nav__item
             = link_to "Your account", edit_user_registration_path, class: "button--huge"
           .hero__nav__item
