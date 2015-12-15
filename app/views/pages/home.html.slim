@@ -7,16 +7,16 @@
         | A better place to write.
       .hero__actions
       - if user_signed_in?
-        .nav
-          .nav__item
+        .hero__nav
+          .hero__nav__item
             .button--huge Start your daily story
-          .nav__item
+          .hero__nav__item
             = link_to "Your account", edit_user_registration_path, class: "button--huge"
-          .nav__item
+          .hero__nav__item
             = link_to "Log out", destroy_user_session_path, class: "button--huge", method: :delete
       - else
-        .nav
-          .nav__item
+        .hero__nav
+          .hero__nav__item
             = link_to "Sign up", new_user_registration_path, class: "button--huge"
-          .nav__item
+          .hero__nav__item
             = link_to "Log in", new_user_session_path, class: "button--huge"

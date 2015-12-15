@@ -37,6 +37,18 @@
 .hero__actions
   +margin-top(2)
 
+.hero__nav
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  +at-breakpoint(lap)
+    flex-direction: row
+
+.hero__nav__item
+  +margin(0.6)
+
 .hero--primary
   @extend .hero
   background-color: $primary-color
