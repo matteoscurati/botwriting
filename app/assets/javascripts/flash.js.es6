@@ -1,5 +1,5 @@
 $(document).ready(() => {
   setTimeout(() => {
     $('.flash').fadeOut(500);
-  }, 4000);
+  }, 6000);
 });
