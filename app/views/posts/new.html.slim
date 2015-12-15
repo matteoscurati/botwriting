@@ -1,5 +1,16 @@
-h1 New post
+.wrap.space--top-8
+  h1 New post
 
-== render 'form'
+  = form_for @post do |f|
+    - if @post.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+        ul
+          - @post.errors.full_messages.each do |message|
+            li = message
 
-= link_to 'Back', posts_path
+    = f.hidden_field :content, html: { id: "content" }
+    .editable data-field-id="content"
+    .actions = f.submit
+
+  = link_to 'Back', posts_path

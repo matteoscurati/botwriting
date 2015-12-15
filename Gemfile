@@ -24,6 +24,7 @@ gem 'rails_stdout_logging'
 source "https://rails-assets.org" do
   gem "rails-assets-modernizr"
   gem "rails-assets-normalize-scss"
+  gem 'rails-assets-medium-editor'
 end
 
 group :development, :test do
