@@ -18,6 +18,7 @@ gem 'slim-rails'
 gem 'sprockets-es6'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'rails_stdout_logging'
 # gem 'therubyracer', platforms: :ruby
 
 source "https://rails-assets.org" do
