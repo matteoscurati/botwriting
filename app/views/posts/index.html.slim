@@ -1,21 +1,22 @@
-h1 Listing posts
+.wrap.space--top-8
+  h1 Listing posts
 
-table
-  thead
-    tr
-      th Content
-      th
-      th
-      th
-
-  tbody
-    - @posts.each do |post|
+  table
+    thead
       tr
-        td = post.content
-        td = link_to 'Show', post
-        td = link_to 'Edit', edit_post_path(post)
-        td = link_to 'Destroy', post, data: {:confirm => 'Are you sure?'}, :method => :delete
+        th Content
+        th
+        th
+        th
 
-br
+    tbody
+      - @posts.each do |post|
+        tr
+          td = post.content
+          td = link_to 'Show', post
+          td = link_to 'Edit', edit_post_path(post)
+          td = link_to 'Destroy', post, data: {:confirm => 'Are you sure?'}, :method => :delete
 
-= link_to 'New Post', new_post_path
+  br
+
+  = link_to 'New Post', new_post_path
