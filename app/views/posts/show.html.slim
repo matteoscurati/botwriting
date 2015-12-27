@@ -1,8 +1,11 @@
 .wrap.space--top-8
-  p#notice = notice
+  /p#notice = notice
   p
     strong Content:
-    = @post.content
+    = @post.content.html_safe
+  p
+    strong Word counter:
+    = @post.word_counter
 
   = link_to 'Edit', edit_post_path(@post)
   '|

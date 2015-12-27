@@ -29,6 +29,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.word_counter = @post.content.sanitize.squish.split.size
 
     respond_to do |format|
       if @post.save
@@ -44,6 +45,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.word_counter = @post.content.sanitize.squish.split.size
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -70,7 +73,10 @@ class PostsController < ApplicationController
       @post = current_user.post
       @post = @post.today
       if @post.count > 0
-        redirect_to(posts_path, notice: "Il post che hai cercato di leggere è ancora in bozza. Sollecita l'autore di pubblicarlo.")
+        respond_to do |format|
+          format.html { redirect_to posts_path, notice: 'You have already posted today' }
+          format.json { head :no_content }
+        end
       end
     end
 
@@ -86,5 +92,9 @@ class PostsController < ApplicationController
       if current_user.id != @post.user_id
         redirect_to(posts_path, notice: "Sorry, this is not your post")
       end
+    end
+
+    def word_counter
+      @post.word_counter = @post.content.sanitize.squish.split.size
     end
 end

@@ -1,12 +1,12 @@
-= form_for @post do |f|
-  - if @post.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
-      ul
-        - @post.errors.full_messages.each do |message|
-          li = message
+  = form_for @post do |f|
+    - if @post.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+        ul
+          - @post.errors.full_messages.each do |message|
+            li = message
 
-  .field
-    = f.label :content
-    = f.text_area :content
-  .actions = f.submit
+    = f.hidden_field :content, html: { id: "content" }
+    .editable data-field-id="content"
+      = @post.content.html_safe
+    .actions = f.submit
