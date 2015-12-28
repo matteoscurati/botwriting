@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227085113) do
+ActiveRecord::Schema.define(version: 20151228222929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
-    t.integer  "word_counter"
-    t.integer  "character_counter"
+    t.integer  "word_count"
+    t.integer  "character_count"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree

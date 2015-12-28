@@ -29,8 +29,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.word_counter = @post.content.sanitize.squish.split.size
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -45,8 +43,6 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.word_counter = @post.content.sanitize.squish.split.size
-
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -85,16 +81,12 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:content, :user_id)
+      params.require(:post).permit(:content, :user_id, :word_count, :character_count)
     end
 
     def action_before_authentication
       if current_user.id != @post.user_id
         redirect_to(posts_path, notice: "Sorry, this is not your post")
       end
-    end
-
-    def word_counter
-      @post.word_counter = @post.content.sanitize.squish.split.size
     end
 end

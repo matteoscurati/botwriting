@@ -4,8 +4,8 @@
     strong Content:
     = @post.content.html_safe
   p
-    strong Word counter:
-    = @post.word_counter
+    strong Word count:
+    = @post.word_count
 
   = link_to 'Edit', edit_post_path(@post)
   '|
