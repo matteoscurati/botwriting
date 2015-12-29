@@ -8,6 +8,6 @@ class Post < ActiveRecord::Base
 
   def content=(content)
     self.word_count = content.sanitize.squish.split.size
-    assign_attributes(content: content)
+    write_attribute(:content, content)
   end
 end
