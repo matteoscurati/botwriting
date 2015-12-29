@@ -28,7 +28,9 @@ source "https://rails-assets.org" do
 end
 
 group :development, :test do
-  gem 'byebug'
+  gem "byebug",                            require: false
+  gem "rspec-rails",                       require: false
+  gem "spring-commands-rspec",             require: false
 end
 
 group :development do
@@ -37,9 +39,7 @@ group :development do
   gem 'guard-livereload'
   gem "letter_opener"
   gem 'rack-livereload'
-  gem "rspec-rails"
   gem 'spring'
-  gem 'spring-commands-rspec'
   gem 'web-console', '~> 2.0'
 end
 
