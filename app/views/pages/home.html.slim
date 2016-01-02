@@ -9,7 +9,10 @@
       - if user_signed_in?
         .hero__nav
           .hero__nav__item
-            = link_to "Start your daily story", posts_path, class: "button--huge"
+            -if current_user.post.today.count > 0
+              = link_to "Read your stories", posts_path, class: "button--huge"
+            - else
+              = link_to "Start your daily story", posts_path, class: "button--huge"
           .hero__nav__item
             = link_to "Your account", edit_user_registration_path, class: "button--huge"
           .hero__nav__item

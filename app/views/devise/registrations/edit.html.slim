@@ -39,4 +39,5 @@
 .wrap.space--top-3.space--bottom-3
   p.space--top-1
     | Unhappy?
-    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button space--top-1"
+    p
+      = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
