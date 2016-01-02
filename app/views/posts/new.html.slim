@@ -9,6 +9,6 @@
             li = message
 
     = f.hidden_field :content, html: { id: "content" }
-    .editable data-field-id="content"
+    .editable.formatted-content data-field-id="content"
     .actions = f.submit
   = link_to 'Back', posts_path

@@ -42,8 +42,11 @@
     font-family: $georgia
     position: relative
     color: $light-body-color
+    +font-size(gamma)
 
     &:before
       @extend .icon--quotes:before
       +position(absolute, 0 null null 0)
 
+  p
+    +font-size(gamma)
