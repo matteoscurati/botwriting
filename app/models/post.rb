@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  obfuscate_id
   validates :content, presence: true
   belongs_to :user
 
