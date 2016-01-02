@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :check_today, only: [:new]
+  before_action :check_already_posted, only: [:new]
+  before_action :check_today, only: [:edit, :update]
   before_action :authenticate_user!
   before_action :action_before_authentication, only: [:edit, :update, :destroy]
 
@@ -65,12 +66,22 @@ class PostsController < ApplicationController
   end
 
   private
-    def check_today
-      @post = current_user.post
-      @post = @post.today
+    def check_already_posted
+      @user_post = current_user.post
+      @post = @user_post.today
       if @post.count > 0
         respond_to do |format|
           format.html { redirect_to posts_path, notice: 'You have already posted today' }
+          format.json { head :no_content }
+        end
+      end
+    end
+
+    def check_today
+      @post = Post.find(params[:id])
+      if @post.created_at.to_date != Date.today
+        respond_to do |format|
+          format.html { redirect_to posts_path, alert: "Sorry, you can only update a post writed today" }
           format.json { head :no_content }
         end
       end
@@ -86,7 +97,7 @@ class PostsController < ApplicationController
 
     def action_before_authentication
       if current_user.id != @post.user_id
-        redirect_to(posts_path, notice: "Sorry, this is not your post")
+        redirect_to(posts_path, alert: "Sorry, this is not your post")
       end
     end
 end
