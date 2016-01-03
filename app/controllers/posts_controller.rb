@@ -79,7 +79,7 @@ class PostsController < ApplicationController
 
     def check_today
       @post = Post.find(params[:id])
-      if @post.created_at.to_date != Date.today
+      if @post.created_at.to_date != Time.now.utc.to_date
         respond_to do |format|
           format.html { redirect_to posts_path, alert: "Sorry, you can only update a post writed today" }
           format.json { head :no_content }

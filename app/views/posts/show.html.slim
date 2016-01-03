@@ -1,8 +1,7 @@
 .wrap.space--top-8
-  /p#notice = notice
-  p
-    strong Content:
-    = @post.content.html_safe
+  .formatted-content
+    p
+      = @post.content.html_safe
   p
     strong Word count:
     = @post.word_count
