@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   }
 
   def content=(content)
-    self.word_count = content.sanitize.squish.split.size
+    self.word_count = content.sanitize.split.size
     write_attribute(:content, content)
   end
 end

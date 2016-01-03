@@ -7,6 +7,6 @@
             li = message
 
     = f.hidden_field :content, html: { id: "content" }
-    .editable.formatted-content data-field-id="content"
+    #area.editable.formatted-content data-field-id="content"
       = @post.content.html_safe
     .actions = f.submit

@@ -23,6 +23,7 @@ gem 'rails_stdout_logging'
 # gem 'therubyracer', platforms: :ruby
 
 source "https://rails-assets.org" do
+  gem 'rails-assets-Countable'
   gem "rails-assets-modernizr"
   gem "rails-assets-normalize-scss"
   gem 'rails-assets-medium-editor'
