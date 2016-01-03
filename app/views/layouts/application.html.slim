@@ -10,7 +10,9 @@ html
     = csrf_meta_tags
   body.site
     main.site__content
-      - if controller.controller_name == 'posts'
+      - if controller.controller_name == 'posts' && controller.action_name == "edit"
+        = render "shared/inner_menu"
+      - elsif controller.controller_name == 'posts' && controller.action_name == "new"
         = render "shared/inner_menu"
       - else
         = render "shared/menu"

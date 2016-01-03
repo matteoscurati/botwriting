@@ -1,2 +1,10 @@
 .inner-menu
-  p This is a inner menu
+  .inner-menu__logo
+  .inner-menu__items
+    .inner-menu__navigation
+      = link_to "home", root_path, class: "inner-menu__navigation__item"
+      = link_to "your stories", posts_path, class: "inner-menu__navigation__item"
+    .inner-menu__tools
+      .inner-menu__tool tool
+      .inner-menu__tool tool
+      .inner-menu__tool tool
