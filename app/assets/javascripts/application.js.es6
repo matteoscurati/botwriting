@@ -11,15 +11,16 @@ $(document).ready(() => {
   $(".edit_post").submit((event) => {
     event.preventDefault();
 
-    let url = $(this).attr('action');
-    let method = $(this).attr('method');
-    let content = $("#post_" + $(this).attr("data-field-id")).val($(this).html());
+    const target = $(event.target);
+    let url = target.attr('action');
+    let content_prova = $("#post_content").val();
+    let content = "ciao";
+    console.log("content: " + content);
 
     $.ajax({
-      type: 'put',
-      url: url,
-      method: method,
-      data: { content: content },
+      url,
+      method: "put",
+      data: { post: { content: content }},
       dataType: 'json',
       processData: false
     });
