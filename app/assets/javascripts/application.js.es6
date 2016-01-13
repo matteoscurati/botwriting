@@ -13,16 +13,14 @@ $(document).ready(() => {
 
     const target = $(event.target);
     let url = target.attr('action');
-    let content_prova = $("#post_content").val();
-    let content = "ciao";
+    let content = $("#post_content").val();
     console.log("content: " + content);
 
     $.ajax({
       url,
       method: "put",
       data: { post: { content: content }},
-      dataType: 'json',
-      processData: false
+      dataType: 'json'
     });
   });
 });
